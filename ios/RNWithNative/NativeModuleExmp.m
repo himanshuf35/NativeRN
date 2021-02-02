@@ -7,8 +7,8 @@
 //
 
 #import <React/RCTBridgeModule.h>
-@interface RCT_EXTERN_MODULE(NativeModuleExmp, NSObject)
+@interface RCT_EXTERN_MODULE(NativeGoBack, NSObject)
 
 RCT_EXTERN_METHOD(getNativeData:(RCTResponseSenderBlock)callback)
-
+RCT_EXTERN_METHOD(goBackToNative)
 @end

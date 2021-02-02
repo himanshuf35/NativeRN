@@ -16,11 +16,6 @@ import java.util.ArrayList;
 
 public class ReactNativeActivity extends AppCompatActivity {
 
-//    @Override
-//    protected String getMainComponentName() {
-//        return "RNWithNative";
-//    }
-
     private ReactRootView mReactRootView;
     private ReactInstanceManager mReactInstanceManager;
 

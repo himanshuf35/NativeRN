@@ -8,10 +8,25 @@
 
 import Foundation
 
-@objc(NativeModuleExmp)
-class NativeModuleExmp: NSObject{
+@objc(NativeGoBack)
+class NativeGoBack: NSObject{
+
+    @objc static func requiresMainQueueSetup() -> Bool {
+        return false
+    }
+
     @objc(getNativeData:)
     func getNativeData(callback: RCTResponseSenderBlock) -> Void {
         callback([nil, "This is the data from native"])
+    }
+
+    @objc(goBackToNative)
+    func goBackToNative() -> Void {
+        // guard let tabBarVC = UIApplication.shared.keyWindow?.rootViewController as? UITabBarController else { return }
+        DispatchQueue.main.async {
+            if let currentNavController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController {
+            currentNavController.popViewController(animated: true)
+            }
+        }
     }
 }

@@ -20,11 +20,11 @@ public class NativeBridgeExmp extends ReactContextBaseJavaModule {
 
     @Override
     public String getName() {
-        return "NativeBridgeExmp";
+        return "NativeGoBack";
     }
 
     @ReactMethod
-    public void show() {
+    public void goBackToNative() {
         Activity currentActivity = reactContext.getCurrentActivity();
         if(currentActivity == null){
             Log.i("Context", "Null");
@@ -33,7 +33,6 @@ public class NativeBridgeExmp extends ReactContextBaseJavaModule {
             Log.i("Context", "Here");
             currentActivity.finish();
         }
-        //        Toast.makeText(getReactApplicationContext(), message, duration).show();
     }
 
 }

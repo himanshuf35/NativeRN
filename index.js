@@ -1,21 +1,34 @@
 import React from 'react'
 import {AppRegistry, StyleSheet, Text, View, NativeModules, TouchableOpacity} from 'react-native'
 
-console.log('NativeModules', NativeModules.NativeModuleExmp.getNativeData((err, res)=>{if(res){console.warn('wohoo', res)}}))
-const nativeObj = NativeModules.NativeModuleExmp
+const nativeObj = NativeModules.NativeGoBack
 
 class ReactNComponent extends React.Component {
     render() {
         return(
             <View style={styles.container}>
               <TouchableOpacity
-                // onPress={()=>{nativeObj.show()}}
+                onPress={()=>{nativeObj.goBackToNative()}}
               >
-                <Text style={styles.hello}>Hello, changes are in React-Native Module</Text>
+                <Text style={styles.hello}>Press Here to go back to native</Text>
               </TouchableOpacity>
             </View>
         )
     }
+}
+
+class AnotherComponent extends React.Component {
+  render() {
+    return(
+        <View style={styles.container}>
+          <TouchableOpacity
+            // onPress={()=>{nativeObj.show()}}
+          >
+            <Text style={styles.hello}>Hello, This is AnotherComponent Module</Text>
+          </TouchableOpacity>
+        </View>
+    )
+}
 }
 
 const styles = StyleSheet.create({
@@ -31,3 +44,4 @@ const styles = StyleSheet.create({
   });
 
   AppRegistry.registerComponent('RNWithNative', () => ReactNComponent);
+  AppRegistry.registerComponent('AnotherComponent', () => AnotherComponent);
